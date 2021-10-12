@@ -2,6 +2,7 @@
 import "./App.css";
 import Header from "../Header/Header";
 import Products from "../Products/Products";
+import ToggleButton from "../ToggleButton";
 function App() {
   const productList = [
     {
@@ -273,6 +274,7 @@ function App() {
   ];
   return (
     <div>
+      <ToggleButton/>
       <Header />
       <Products products={productList} />
     </div>
