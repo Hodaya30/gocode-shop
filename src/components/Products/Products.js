@@ -1,20 +1,11 @@
 import './Products.css';
 import ProductCard from '../ProductCard/ProductCard';
-function Products() {
-    return  (
+function Products ({products}) {
+  return (
     <section className="products">
-      <ProductCard />
-      <ProductCard />
-      <ProductCard />
-      <ProductCard />
-      <ProductCard />
-      <ProductCard />
-      <ProductCard /> 
-      <ProductCard /> 
-      <ProductCard />
-      <ProductCard />
-  
-    </section>
+      {products.map((productItem) => <ProductCard key={productItem.id} image={productItem.image} description={productItem.description} price={productItem.price}></ProductCard>)}
+    </section> 
   );
-    }
+}
+    
     export default Products;
