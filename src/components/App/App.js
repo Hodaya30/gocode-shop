@@ -3,8 +3,11 @@ import "./App.css";
 import Header from "../Header/Header";
 import Products from "../Products/Products";
 import ToggleButton from "../ToggleButton";
+import * as ReactBootStrap from 'react-bootstrap';
+import { useEffect, useState } from "react";
 function App() {
-  const productList = [
+  const [ loading, setLoading]= useState(true);
+  const [myproductList, setMyproductList] =useState( [
     {
       id: 1,
       title: "Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops",
@@ -271,12 +274,26 @@ function App() {
         count: 145,
       },
     },
-  ];
+  ]);
+  useEffect(()=>{
+    fetch("https://fakestoreapi.com/products")
+    .then((res)=>{
+      return res.json();}).then((myproductList)=>
+      {setMyproductList(myproductList);
+       }  ); 
+       setLoading(false);
+ },[]);
+ 
+   const mycategories = myproductList.map(p => p.category).filter((value, index, array) => array.indexOf(value)===index);
+  
+   const selectOptionHandler = (event) => {
+    setMyproductList(myproductList.filter((product)=>product.category===event.target.value) );
+  };
   return (
-    <div>
+    <div >
       <ToggleButton/>
-      <Header />
-      <Products products={productList} />
+      <Header categories={mycategories} handleChange={selectOptionHandler} />
+      <Products productsList={myproductList} />
     </div>
   );
 }
