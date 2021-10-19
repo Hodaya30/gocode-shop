@@ -1,6 +1,6 @@
 import './Header.css';
 
-function Header({categories,handleChange}) {
+function Header({categories,filterTheCategory}) {
   return ( 
   <nav className="product-filter">
   <h1>Jackets</h1>
@@ -8,8 +8,9 @@ function Header({categories,handleChange}) {
   <div className="sort">
     <div className="collection-sort">
       <label>Filter by:</label>
-      <select onChange={handleChange} value="">
-      {categories.map(category => (<option value={category.value}>{category}</option>))}
+      <select onChange={ (e)=>filterTheCategory(e.target.value)} >
+      <option >All</option>
+      {categories.map(category => (<option key={category}>{category}</option>))}
       </select>
 
     </div>
