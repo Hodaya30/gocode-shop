@@ -1,14 +1,13 @@
 import './Header.css';
 
-function Header({categories,filterTheCategory}) {
+function Header({categories,filterCategory}) {
   return ( 
   <nav className="product-filter">
-  <h1>Jackets</h1>
-
+  <h1>GoShop</h1>
   <div className="sort">
     <div className="collection-sort">
       <label>Filter by:</label>
-      <select onChange={ (e)=>filterTheCategory(e.target.value)} >
+      <select onChange={(e)=>filterCategory(e.target.value)} >
       <option >All</option>
       {categories.map(category => (<option key={category}>{category}</option>))}
       </select>

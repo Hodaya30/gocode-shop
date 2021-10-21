@@ -1,6 +1,7 @@
 import './Products.css';
 import ProductCard from '../ProductCard/ProductCard';
 function Products ({productsList}) {
+  console.log(productsList);
   return (
     <section className="products">
       {productsList.map(({id, image, description, price}) => (
