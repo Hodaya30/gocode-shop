@@ -1,5 +1,6 @@
 import './Header.css';
 
+
 function Header({categories,filterCategory}) {
   return ( 
   <nav className="product-filter">
@@ -11,7 +12,6 @@ function Header({categories,filterCategory}) {
       <option >All</option>
       {categories.map(category => (<option key={category}>{category}</option>))}
       </select>
-
     </div>
 
     <div className="collection-sort">
