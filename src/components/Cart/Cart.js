@@ -41,7 +41,8 @@ export default function Cart() {
       image={image} 
       description={description}
        price={price}>
-      </ProductCard>))}
+      </ProductCard>
+      ))}
       </List>
       <Divider />
       <List>
