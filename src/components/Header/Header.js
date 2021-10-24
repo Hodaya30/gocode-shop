@@ -1,11 +1,14 @@
 import './Header.css';
+import PriceSlider from "../PriceSlider";
 
-
-function Header({categories,filterCategory}) {
+function Header({categories,filterCategory,filterPriceSlider}) {
   return ( 
   <nav className="product-filter">
   <h1>GoShop</h1>
   <div className="sort">
+    <div className="collection-sort">
+    <PriceSlider filterPriceSlider={filterPriceSlider}/>
+    </div>
     <div className="collection-sort">
       <label>Filter by:</label>
       <select onChange={(e)=>filterCategory(e.target.value)} >

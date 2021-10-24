@@ -61,7 +61,7 @@ export default function Cart() {
     <div>
       {
         <React.Fragment key='right'>
-          <Button onClick={toggleDrawer('right', true)}  startIcon={  <ShoppingCartIcon sx={{ fontSize: 477 }}/>}></Button>
+          <Button onClick={toggleDrawer('right', true)}  startIcon={  <ShoppingCartIcon sx={{ fontSize: 477 }}/>}>My Cart</Button>
           <Drawer
             anchor='right'
             open={state['right']}

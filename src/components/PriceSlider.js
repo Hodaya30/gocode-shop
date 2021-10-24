@@ -7,7 +7,7 @@ function valuetext(value) {
 }
 
 export default function RangeSlider({filterPriceSlider}) {
-  const [value, setValue] = React.useState([0, 100]);
+  const [value, setValue] = React.useState([0, 200]);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -16,13 +16,16 @@ export default function RangeSlider({filterPriceSlider}) {
 
   return (
     <Box sx={{ width: 300 }}>
-      <Slider
+      <div>
+      <label>Filter by price:</label>
+      <Slider max={200} min={0}
         getAriaLabel={() => 'Price range'}
         value={value}
         onChange={handleChange}
         valueLabelDisplay="auto"
         getAriaValueText={valuetext}
       />
+      </div>
     </Box>
   );
 }
