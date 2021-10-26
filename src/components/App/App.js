@@ -1,24 +1,27 @@
 //import logo from '.../logo.svg';
 
+import { useState } from "react";
 import {
   BrowserRouter as Router,
   Switch,
   Route,
   Link
 } from "react-router-dom";
+import { CartContext } from "../../CartContext";
 import Home from "../../views/Home";
 import ProductDetails from "../../views/ProductDetails";
 function App() {
+  const [cart, setCart]=useState([]);
+
   
   return (
+    <CartContext.Provider value={[cart, setCart]}>
 
 <Router>
       <div>
         <nav>
           <ul>
-            <li>
-              <Link to="/">GoShop</Link>
-            </li>
+           
            
           </ul>
         </nav>
@@ -35,9 +38,11 @@ function App() {
         </Switch>
       </div>
     </Router>
-  
+    </CartContext.Provider>
+
 
   );
+
 }
 
 export default App;

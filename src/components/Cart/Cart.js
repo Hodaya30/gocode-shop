@@ -9,6 +9,7 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
+import IconButton from '@mui/material/IconButton';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import ProductCard from '../ProductCard/ProductCard';
 import  {useState} from "react";
@@ -62,7 +63,17 @@ export default function Cart() {
     <div>
       {
         <React.Fragment key='right'>
-          <Button onClick={toggleDrawer('right', true)}  startIcon={  <ShoppingCartIcon sx={{ fontSize: 477 }}/>}>My Cart</Button>
+          <IconButton
+          onClick={toggleDrawer('right', true)}
+            size="large"
+            edge="start"
+            color="inherit"
+            aria-label="menu]"
+            sx={{ mr: 2 }}
+          >
+            <ShoppingCartIcon  sx={{ fontSize: 30 }}/>
+            <div> My Cart </div>
+          </IconButton >
           <Drawer
             anchor='right'
             open={state['right']}
