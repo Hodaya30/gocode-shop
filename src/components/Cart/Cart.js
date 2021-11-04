@@ -67,17 +67,18 @@ export default function Cart() {
           onClick={toggleDrawer('right', true)}
             size="large"
             edge="start"
-            color="inherit"
+            color="default"
             aria-label="menu]"
             sx={{ mr: 2 }}
           >
-            <ShoppingCartIcon  sx={{ fontSize: 30 }}/>
-            <div> My Cart </div>
+            <ShoppingCartIcon   sx={{ fontSize: 30 }}/>
+            <div style={{ color: '#006064' }}> My Cart </div>
           </IconButton >
           <Drawer
             anchor='right'
             open={state['right']}
             onClose={toggleDrawer('right', false)}
+      
           >
             {list('right')}
           </Drawer>

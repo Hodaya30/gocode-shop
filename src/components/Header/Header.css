@@ -1,11 +1,16 @@
 .product-filter {
   display: flex;
   padding: 30px 0;
+  margin-bottom:auto;
 }
 
 .sort {
   display: flex;
-  align-self: flex-end;
+  align-self: flex-e;
+  margin-bottom:auto;
+  padding-right: 20px;
+
+
 }
 
 .collection-sort {

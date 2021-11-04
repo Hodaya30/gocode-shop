@@ -17,20 +17,21 @@ export default function AppBarCom() {
     <Box sx={{ flexGrow: 0} }  >
       <AppBar className="app-Bar" style={{ background: '#f6f6f6' }} position="absolute"  >
       <Toolbar  >
-      <Link to="/" >
+      <Box display='flex' flexGrow={1}>
+      <div>
+      <Link to="/" style={{ textDecoration: 'none' }}>
           <Typography variant="h6" component="div" style={{ color: '#006064' }} sx={{ flexGrow: 1 }}>
             GoShop
           </Typography>
           </Link>
-          <Cart />
+          </div>        </Box>
+          <Cart sx={{  marginLeft: 'auto' }}/>
           <IconButton className="icon"
             size="large"
             edge="end"
             color="default"
             aria-label="menu"
-            sx={{ mr: 2 }}
-            
-          >
+            sx={{ mr: 2  }} >
             <MenuIcon />
           </IconButton>
           

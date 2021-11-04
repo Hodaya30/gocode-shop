@@ -1,13 +1,14 @@
 import './Header.css';
 import PriceSlider from "../PriceSlider";
 
+
 function Header({categories,filterCategory,filterPriceSlider}) {
   return ( 
   <nav className="product-filter">
-  <h1>GoShop</h1>
+  <h1></h1>
   <div className="sort">
     <div className="collection-sort">
-    <PriceSlider filterPriceSlider={filterPriceSlider}/>
+    <PriceSlider filterPriceSlider={filterPriceSlider} />
     </div>
     <div className="collection-sort">
       <label>Filter by:</label>
@@ -16,6 +17,7 @@ function Header({categories,filterCategory,filterPriceSlider}) {
       {categories.map(category => (<option key={category}>{category}</option>))}
       </select>
     </div>
+    
 
     <div className="collection-sort">
       <label>Sort by:</label>

@@ -24,6 +24,10 @@ export default function RangeSlider({filterPriceSlider}) {
         onChange={handleChange}
         valueLabelDisplay="auto"
         getAriaValueText={valuetext}
+        sx={{
+          width: 300,
+          color: 'GrayText'
+        }}
       />
       </div>
     </Box>
