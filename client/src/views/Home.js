@@ -11,9 +11,11 @@ import AppBarCom from "../components/AppBarCom/AppBarCom";
 function Home() {
   const [loading, setLoading] = useState(false);
   const [InitialProducts, setInitialProducts] = useState([]);
-  const [filterByCategory, setFilterByCategory] = useState(InitialProducts);
+  const [filter, setFilter] = useState(InitialProducts);
+  const [max, setMax] = useState(1000);
+  const [min, setMin] = useState(0);
+  const [category, setCategory] = useState("All");
 
-  // [filterByPrice , setFilterByPrice]= useState(filterByCategory);
 
   useEffect(() => {
     fetch("/api/products")
@@ -23,7 +25,9 @@ function Home() {
       .then(InitialProducts => {
         setInitialProducts(InitialProducts);
         setLoading(true);
-        setFilterByCategory(InitialProducts);
+        setMin(0);
+        setMax(1000);
+        setFilter(InitialProducts);
       });
   }, []);
 
@@ -31,18 +35,25 @@ function Home() {
     (value, index, array) => array.indexOf(value) === index
   );
   const filterCategory = category => {
-    if (category === "All") setFilterByCategory(InitialProducts);
-    else
-      setFilterByCategory(
-        InitialProducts.filter(product => product.category === category)
-      );
-  };
-  const filterPriceSlider = ([maxPrice, minPrice]) => {
-    setFilterByCategory(
-      InitialProducts.filter(
-        product => product.price >= maxPrice && product.price <= minPrice
-      )
+    if (category === "All")  setFilter(
+      InitialProducts.filter(product => product.price >= min && product.price <= max)
     );
+    else
+    setFilter(
+        InitialProducts.filter(product => product.category === category&& product.price >= min && product.price <= max)
+      );
+      setCategory(category);
+  };
+  const filterPriceSlider = ([minPrice, maxPrice]) => {
+    if (category === "All")  setFilter(
+      InitialProducts.filter(product => product.price >= minPrice && product.price <= maxPrice)
+    );
+    else
+    setFilter(
+      InitialProducts.filter(product => product.price >= minPrice && product.price <= maxPrice && product.category === category)
+    );
+    setMax(maxPrice);
+    setMin(minPrice);
   };
 
   return (
@@ -54,14 +65,15 @@ function Home() {
         filterCategory={filterCategory}
         filterPriceSlider={filterPriceSlider}
       />
-      {loading ? (
-        <Products productsList={filterByCategory} />
-      ) : (
+      {loading ? ( <Products productsList={filter} /> ) : (
         <div className="spinner">
           <ReactBootStrap.Spinner animation="border" role="status" />
         </div>
       )}
+
     </div>
   );
 }
 export default Home;
+
+

@@ -9,7 +9,7 @@ import NativeSelect from '@mui/material/NativeSelect';
 
 function Header({categories,filterCategory,filterPriceSlider}) {
   return ( 
-  <nav className="product-filter">
+  <nav className="product-filter" >
   <div className="sort">
     <div className="collection-sort">
     <PriceSlider filterPriceSlider={filterPriceSlider} />

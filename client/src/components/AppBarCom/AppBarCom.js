@@ -3,13 +3,10 @@ import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
-import IconButton from '@mui/material/IconButton';
-import MenuIcon from '@mui/icons-material/Menu';
 import { Link } from "react-router-dom";
-import { color } from '@mui/system';
 import Cart from '../Cart/Cart';
 import  './AppBarCom.css';
+import Menu from '../Menu';
 
 
 export default function AppBarCom() {
@@ -26,15 +23,7 @@ export default function AppBarCom() {
           </Link>
           </div>        </Box>
           <Cart sx={{  marginLeft: 'auto' }}/>
-          <IconButton className="icon"
-            size="large"
-            edge="end"
-            color="default"
-            aria-label="menu"
-            sx={{ mr: 2  }} >
-            <MenuIcon />
-          </IconButton>
-          
+            <Menu/>
         </Toolbar>
       </AppBar>
     </Box>

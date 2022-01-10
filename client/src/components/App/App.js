@@ -5,11 +5,11 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
 } from "react-router-dom";
 import { CartContext } from "../../CartContext";
 import Home from "../../views/Home";
 import ProductDetails from "../../views/ProductDetails";
+import FullFeaturedCrudGrid from "../Admin";
 function App() {
   const [cart, setCart]=useState([]);
 
@@ -29,12 +29,16 @@ function App() {
         {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
         <Switch>
+        <Route path="/admin/">
+          <FullFeaturedCrudGrid />
+          </Route>
           <Route path="/products/:id">
             <ProductDetails />
           </Route>
           <Route path="/">
             <Home />
           </Route>
+         
         </Switch>
       </div>
     </Router>

@@ -2,6 +2,8 @@
   display: flex;
   padding: 30px 0;
   margin-bottom:auto;
+  padding-left: 25%;
+
 }
 
 .sort {
@@ -16,6 +18,14 @@
 .collection-sort {
   display: flex;
   flex-direction: column;
+  padding-left: 8%;
+  padding-right: 8%;
+  padding-top: 2%;
+  padding-bottom: 2%;
+
+  background-color: #fff;
+
+  
 }
 
 .collection-sort:first-child {
